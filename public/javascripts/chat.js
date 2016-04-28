@@ -17,9 +17,7 @@ Chat.prototype.changeRoom = function(room) {
 };
 Chat.prototype.processCommand = function(command) {
   var words = command.split(' ');
-  var command = words[0].
-                        substring(1, words[0].length).
-                        toLowerCase();
+  var command = words[0].substring(1, words[0].length).toLowerCase();
 
   var message = false;
 
@@ -29,8 +27,7 @@ Chat.prototype.processCommand = function(command) {
       var room = words.join(' ');
       this.changeRoom(room);
       break;
-    default:
-    case: 'tom':
+    case 'nickname':
       words.shift();
       var name = words.join(' ');
       this.socket.emit('nameAttempt', name);
@@ -38,6 +35,6 @@ Chat.prototype.processCommand = function(command) {
     default:
       message = 'Unrecoginzed command.';
       break
-  }
+  };
   return message;
-}
+};
